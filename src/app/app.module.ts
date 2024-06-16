@@ -17,12 +17,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UrbanCaratComponent } from './urban-carat/urban-carat.component';
 import { ProductComponent } from './urban-carat/products/component/product/product.component';
+import { AddProductComponent } from './urban-carat/products/component/product/add-product/add-product.component';
+import { GetProductsComponent } from './urban-carat/products/component/product/get-products/get-products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UrbanCaratComponent,
-    ProductComponent
+    ProductComponent,
+    AddProductComponent,
+    GetProductsComponent
   ],
   imports: [
     BrowserModule,

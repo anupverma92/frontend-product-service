@@ -2,28 +2,5 @@
   <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
 </div>
 
-<p-menubar [model]="menuItems">
-  <input type="text" pInputText placeholder="Search">
-  <p-button label="Add Product" icon="pi pi-plus"></p-button>
-</p-menubar>
-
-<div class="card">
-  <p-table [value]="products" [columns]="cols" styleClass="p-datatable-gridlines"
-           [tableStyle]="{ 'min-width': '50rem' }">
-    <ng-template pTemplate="header">
-      <tr>
-        <th *ngFor="let col of cols">
-          {{ col.header }}
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-      <tr>
-        <td *ngFor="let col of cols">
-          {{ rowData[col.field] }}
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-</div>
-
+<app-add-product></app-add-product>
+<app-get-products></app-get-products>
