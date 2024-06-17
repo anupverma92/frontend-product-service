@@ -11,6 +11,7 @@ import { ProductService } from '../../../service/product.service';
 export class GetProductsComponent implements OnInit {
   cols!: Column[];
   products!: Product[];
+  product!: Product;
 
   constructor(private productService: ProductService) { }
 
@@ -22,13 +23,17 @@ export class GetProductsComponent implements OnInit {
                 { field: 'category', header: 'Category' },
                 { field: 'material', header: 'Material' },
                 { field: 'weight', header: 'Weight' },
-                { field: 'articleMaterialPercentage', header: 'Percentage' }
+                { field: 'articleMaterialPercentage', header: 'Percentage' },
+                { field: 'articleCostPrice', header: 'Cost Price' },
+                { field: 'action', header: 'Action' }
             ];
 
     this.productService.getAllProducts()
     .subscribe((data: Product[]) => {
-                console.log(data);
                 this.products = data;
+                console.log("get Product Component data"+ this.products)
+                //setting this data to access in add Product/Sibling Component
+                this.productService.setData(data);
             });
   }
 

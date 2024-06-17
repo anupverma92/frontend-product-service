@@ -8,11 +8,30 @@ import { Product } from  '../type/Product';
 })
 export class ProductService {
 
-  private baseUrl = "http://localhost:8080/api/product/v1/getAllProducts";
+  public products!: Product[];
+
+  private baseUrl = "http://localhost:8080/api/product/v1";
 
     constructor(private http: HttpClient) { }
 
-    getAllProducts() {
-        return this.http.get<Product[]>(`${this.baseUrl}`);
+    setData(products: Product[]) {
+        this.products = products;
       }
+
+    addToProducts(product: Product){
+      this.products.push(product);
+      }
+
+    getAllProducts() {
+        return this.http.get<Product[]>(`${this.baseUrl}/getAllProducts`);
+      }
+
+    saveProduct(product: Product) : Observable<Product> {
+      return this.http.post<Product>(`${this.baseUrl}/addProduct`, product);
+      }
+
+    editProduct(product: Product): Observable<Product> {
+      return this.http.put<Product>(`${this.baseUrl}/editProduct`, product);
+      }
+
 }

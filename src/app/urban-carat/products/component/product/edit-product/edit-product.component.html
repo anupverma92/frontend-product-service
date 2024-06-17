@@ -1,14 +1,8 @@
-<div class="card">
-  <p-toolbar styleClass="mb-4 gap-2">
-    <ng-template pTemplate="left"><p>Products</p></ng-template>
-    <ng-template pTemplate="right">
-      <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
-    </ng-template>
-  </p-toolbar>
-</div>
+<button pButton pRipple icon="pi pi-pencil" class="p-button-danger"
+        (click)="editProduct(this)"></button>
 
 <div class="card">
-  <p-dialog [(visible)]="productDialog" [style]="{width: '650px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+  <p-dialog [(visible)]="editDialog" [style]="{width: '650px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
       <div class="field">
         <label>Material</label>
@@ -57,7 +51,7 @@
           <ng-template let-option pTemplate="item">{{option.label}}</ng-template>
         </p-dropdown>
 
-        <p-dropdown [(ngModel)]="product.carat" inputId="carat" [options]="carats" placeholder="Carat">
+        <p-dropdown [(ngModel)]="product.carat" inputId="caratStatus" [options]="carats" placeholder="Carat">
           <ng-template let-option pTemplate="item">{{option.label}}</ng-template>
         </p-dropdown>
       </div>
@@ -70,8 +64,3 @@
   </p-dialog>
 
 </div>
-
-
-
-
-

@@ -5,5 +5,14 @@ export class Product {
   quantity!: string;
   weight!: number;
   material!: string;
-  articleMaterialPercentage!: string;
+  carat!: string;
+  hallmarkId!: string;
+  materialCostPrice!: number;
+  articleCostPrice!: number;
+  materialSellPrice!: number;
+  articleSellPrice!: number;
+  articleMakingCostPrice!: number;
+  articleMakingSellPrice!: number;
+  articleMaterialPercentage!: number;
+  hallmark!: boolean;
 }

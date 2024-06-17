@@ -1,5 +1,5 @@
 <div class="card">
-  <p-table [value]="products" [columns]="cols" styleClass="p-datatable-gridlines"
+  <p-table [value]="products" selectionMode="single" [columns]="cols" styleClass="p-datatable-gridlines"
            [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
@@ -10,10 +10,14 @@
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
       <tr>
-        <td *ngFor="let col of cols">
-          {{ rowData[col.field] }}
+        <td *ngFor="let col of cols" >
+          <span *ngIf="col.field !== 'action'">{{ rowData[col.field] }}</span>
+          <span *ngIf="col.field == 'action'"><app-edit-product></app-edit-product></span>
+          <!--<span *ngIf="col.field == 'action'"><app-delete-product></app-delete-product></span>-->
         </td>
       </tr>
     </ng-template>
   </p-table>
 </div>
+
+
