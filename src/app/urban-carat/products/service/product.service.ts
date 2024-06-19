@@ -26,7 +26,7 @@ export class ProductService {
 
       }
 
-    removeProduct(prod: Product) : Observable<Product> {
+    removeProduct(prod: Product) {
       this.products = this.products.filter((product) => product.id !== prod.id);
      }
 

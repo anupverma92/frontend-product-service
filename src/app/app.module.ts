@@ -18,6 +18,9 @@ import {ToastModule} from 'primeng/toast';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {DropdownModule} from 'primeng/dropdown';
 import { ScrollerModule } from 'primeng/scroller';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
+import {ConfirmationService} from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,9 +60,10 @@ import { DeleteProductComponent } from './urban-carat/products/component/product
     ToastModule,
     RadioButtonModule,
     DropdownModule,
-    ScrollerModule
+    ScrollerModule,
+    ConfirmPopupModule
   ],
-  providers: [],
+  providers: [ConfirmationService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
