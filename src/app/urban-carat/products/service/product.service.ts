@@ -22,6 +22,14 @@ export class ProductService {
       this.products.push(product);
       }
 
+    replaceProduct(product: Product){
+
+      }
+
+    removeProduct(prod: Product) : Observable<Product> {
+      this.products = this.products.filter((product) => product.id !== prod.id);
+     }
+
     getAllProducts() {
         return this.http.get<Product[]>(`${this.baseUrl}/getAllProducts`);
       }
@@ -33,5 +41,11 @@ export class ProductService {
     editProduct(product: Product): Observable<Product> {
       return this.http.put<Product>(`${this.baseUrl}/editProduct`, product);
       }
+
+    deleteProduct(productId: number): Observable<Product> {
+        return this.http.delete<Product>(`${this.baseUrl}/deleteProduct/${productId}`);
+      }
+
+
 
 }

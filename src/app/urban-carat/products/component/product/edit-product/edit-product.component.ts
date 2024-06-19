@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../../type/Product';
 import { ProductService } from '../../../service/product.service';
 
@@ -11,18 +11,29 @@ export class EditProductComponent implements OnInit {
 
   editDialog: boolean = false;
   submitted: boolean = true;
-  product!: Product;
+
   hallmark!: any[];
   carats!: any[];
+  @Input()
+  product!: Product;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.hallmark = [
+          {label: 'Yes', value: true},
+          {label: 'No', value: false},
+          ];
+        this.carats = [
+                    {label: '24 Ct', value: '24 carat'},
+                    {label: '22 Ct', value: '22 carat'},
+                    {label: '20 Ct', value: '20 carat'},
+                    {label: '18 Ct', value: '18 carat'},
+                    {label: '14 Ct', value: '14 carat'}
+                ];
   }
 
-  editProduct(product: any) {
-    this.product = product.productService.products[0];
-      console.log(this.product);
+  editProduct() {
       this.editDialog = true;
     }
 
@@ -32,7 +43,10 @@ export class EditProductComponent implements OnInit {
     }
 
   saveProduct() {
-    //this.productService.editProduct(product.productService.products[0]);
+    this.productService.editProduct(this.product)
+    .subscribe(response => {
+      this.productService.replaceProduct(response)
+      });
     this.editDialog = false;
     }
 

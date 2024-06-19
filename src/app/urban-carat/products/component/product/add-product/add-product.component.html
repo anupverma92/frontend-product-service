@@ -8,9 +8,9 @@
 </div>
 
 <div class="card">
-  <p-dialog [(visible)]="productDialog" [style]="{width: '650px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+  <p-dialog [(visible)]="productDialog" [style]="{width: '750px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-      <div class="field">
+      <div class="field drop">
         <label>Material</label>
 
         <p-radioButton class="radio" id="category1" name="material" value="Diamond" [(ngModel)]="product.material"></p-radioButton>
@@ -21,38 +21,7 @@
 
         <p-radioButton class="radio" id="category3" name="material" value="Silver" [(ngModel)]="product.material"></p-radioButton>
         <label class="radioOption">Silver</label>
-      </div>
 
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-        <input type="text" pInputText placeholder="Article Name" id="articleName" [(ngModel)]="product.articleName" required autofocus />
-
-        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-        <input type="text" pInputText placeholder="Weight" id="weight" [(ngModel)]="product.weight" required autofocus />
-      </div>
-
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-        <input type="text" pInputText placeholder="Material Cost Price" id="materialCostPrice" [(ngModel)]="product.materialCostPrice" required autofocus />
-
-        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-        <input type="text" pInputText placeholder="Article Material Percentage" id="articleMaterialPercentage" [(ngModel)]="product.articleMaterialPercentage" required autofocus />
-      </div>
-
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-        <input type="text" pInputText placeholder="Article Making Cost Price" id="articleMakingCostPrice" [(ngModel)]="product.articleMakingCostPrice" required autofocus />
-      </div>
-
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-        <input type="text" pInputText placeholder="Category" id="category" [(ngModel)]="product.category" required autofocus />
-        <span></span>
-        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-        <input type="text" pInputText placeholder="Hallmark ID" id="hallmarkId" [(ngModel)]="product.hallmarkId" required autofocus />
-      </div>
-
-      <div class="field drop">
         <p-dropdown [(ngModel)]="product.hallmark" inputId="hallmarkStatus" [options]="hallmark" placeholder="Hall Mark Status">
           <ng-template let-option pTemplate="item">{{option.label}}</ng-template>
         </p-dropdown>
@@ -60,6 +29,35 @@
         <p-dropdown [(ngModel)]="product.carat" inputId="carat" [options]="carats" placeholder="Carat">
           <ng-template let-option pTemplate="item">{{option.label}}</ng-template>
         </p-dropdown>
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user-edit"></i></span>
+        <input type="text" pInputText placeholder="Article Name" id="articleName" [(ngModel)]="product.articleName" required autofocus />
+
+        <span class="p-inputgroup-addon"><i class="pi pi-server"></i></span>
+        <input type="text" pInputText placeholder="Weight" id="weight" [(ngModel)]="product.weight" required autofocus />
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-calculator"></i></span>
+        <input type="text" pInputText placeholder="Material Cost Price" id="materialCostPrice" [(ngModel)]="product.materialCostPrice" required autofocus />
+
+        <span class="p-inputgroup-addon"><i class="pi pi-percentage"></i></span>
+        <input type="text" pInputText placeholder="Article Material Percentage" id="articleMaterialPercentage" [(ngModel)]="product.articleMaterialPercentage" required autofocus />
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-ellipsis-h"></i></span>
+        <input type="text" pInputText placeholder="Category" id="category" [(ngModel)]="product.category" required autofocus />
+        <span></span>
+        <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span>
+        <input type="text" pInputText placeholder="Hallmark ID" id="hallmarkId" [(ngModel)]="product.hallmarkId" required autofocus />
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-calculator"></i></span>
+        <input type="text" pInputText placeholder="Article Making Cost Price" id="articleMakingCostPrice" [(ngModel)]="product.articleMakingCostPrice" required autofocus />
       </div>
     </ng-template>
 

@@ -17,6 +17,7 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {ToastModule} from 'primeng/toast';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {DropdownModule} from 'primeng/dropdown';
+import { ScrollerModule } from 'primeng/scroller';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -55,7 +56,8 @@ import { DeleteProductComponent } from './urban-carat/products/component/product
     ToolbarModule,
     ToastModule,
     RadioButtonModule,
-    DropdownModule
+    DropdownModule,
+    ScrollerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
