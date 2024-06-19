@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Column } from '../../../type/Column';
 import { Product } from '../../../type/Product';
 import { ProductService } from '../../../service/product.service';
+import { Table } from 'primeng/table'
 
 @Component({
   selector: 'app-get-products',
@@ -12,6 +13,9 @@ export class GetProductsComponent implements OnInit {
   cols!: Column[];
   products!: Product[];
   product!: Product;
+
+  @ViewChild('productTable')
+  productTable!: Table;
 
   constructor(private productService: ProductService) { }
 
@@ -31,9 +35,8 @@ export class GetProductsComponent implements OnInit {
     this.productService.getAllProducts()
     .subscribe((data: Product[]) => {
                 this.products = data;
-                console.log("get Product Component data"+ this.products)
                 //setting this data to access in add Product/Sibling Component
-                this.productService.setData(data);
+                this.productService.setData(data, this.productTable);
             });
   }
 

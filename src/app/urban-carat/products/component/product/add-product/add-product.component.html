@@ -2,6 +2,7 @@
   <p-toolbar styleClass="mb-4 gap-2">
     <ng-template pTemplate="left"><p>Products</p></ng-template>
     <ng-template pTemplate="right">
+    <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search..." style="margin-right: '4px'" />
       <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
     </ng-template>
   </p-toolbar>

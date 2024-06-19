@@ -1,9 +1,8 @@
 <p-confirmPopup></p-confirmPopup>
 <p-toast></p-toast>
 
-
 <div class="card">
-  <p-table [value]="products" [columns]="cols" styleClass="p-datatable-gridlines"
+  <p-table #productTable [value]="products" [columns]="cols" styleClass="p-datatable-gridlines"
            [tableStyle]="{ 'min-width': '50rem' }" [rows]="5" [paginator]="true" [rowsPerPageOptions]="[5,10,15,20]">
     <ng-template pTemplate="header">
       <tr>

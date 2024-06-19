@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Product } from '../../../type/Product';
 import { ProductService } from '../../../service/product.service';
+import { Table } from 'primeng/table'
 
 @Component({
   selector: 'app-add-product',
@@ -15,6 +16,7 @@ export class AddProductComponent implements OnInit {
   productDialog: boolean = false;
   carats!: any[];
   hallmark!: any[];
+  productTable!: Table;
 
   constructor(private messageService: MessageService, private productService: ProductService) { }
 
@@ -50,10 +52,9 @@ export class AddProductComponent implements OnInit {
     this.submitted = false;
   }
 
-addMandatoryData(product: Product) {
-    this.product.quantity = '1';
-    this.product.articleCostPrice = ((product.weight)*(product.materialCostPrice/10)
-    *(product.articleMaterialPercentage/100)+(product.articleMakingCostPrice))
+  applyFilterGlobal($event: any, stringVal: any) {
+    this.productTable = this.productService.productTable;
+    this.productTable.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 
 }
