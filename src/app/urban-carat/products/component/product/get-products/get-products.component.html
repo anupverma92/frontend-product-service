@@ -2,8 +2,9 @@
 <p-toast></p-toast>
 
 <div class="card">
-  <p-table #productTable [value]="products" [columns]="cols" styleClass="p-datatable-gridlines"
-           [tableStyle]="{ 'min-width': '50rem' }" [rows]="5" [paginator]="true" [rowsPerPageOptions]="[5,10,15,20]">
+  <p-table #productTable [value]="products" [columns]="cols" styleClass="p-datatable-gridlines p-datatable-sm"
+           responsiveLayout="stack" [breakpoint]="'960px'" [rows]="5"
+           [paginator]="true" [rowsPerPageOptions]="[5,10,15,20]">
     <ng-template pTemplate="header">
       <tr>
         <th *ngFor="let col of cols" pSortableColumn="{{col.field}}" >
