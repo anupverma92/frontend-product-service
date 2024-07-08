@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../../type/Product';
-import { ProductService } from '../../../service/product.service';
+import { ProductService } from 'src/app/urban-carat/service/product.service';
 
 @Component({
   selector: 'app-edit-product',

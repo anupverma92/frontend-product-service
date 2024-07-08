@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Product } from '../../../type/Product';
-import { ProductService } from '../../../service/product.service';
 import { Table } from 'primeng/table'
+import { ProductService } from 'src/app/urban-carat/service/product.service';
 
 @Component({
   selector: 'app-add-product',

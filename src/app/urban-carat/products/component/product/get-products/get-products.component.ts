@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Column } from '../../../type/Column';
 import { Product } from '../../../type/Product';
-import { ProductService } from '../../../service/product.service';
 import { Table } from 'primeng/table'
+import { ProductService } from 'src/app/urban-carat/service/product.service';
 
 @Component({
   selector: 'app-get-products',

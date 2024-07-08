@@ -1,9 +1,9 @@
 import { Injectable, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Product } from  '../type/Product';
 import { Table } from 'primeng/table';
-import { AppConstants } from '../../../app.constants';
+import { AppConstants } from 'src/app/app.constants';
+import { Product } from '../products/type/Product';
 
 @Injectable({
   providedIn: 'root'

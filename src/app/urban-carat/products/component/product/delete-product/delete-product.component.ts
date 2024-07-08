@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../../type/Product';
-import { ProductService } from '../../../service/product.service';
 import {ConfirmationService, MessageService} from 'primeng/api';
+import { ProductService } from 'src/app/urban-carat/service/product.service';
 
 @Component({
   selector: 'app-delete-product',

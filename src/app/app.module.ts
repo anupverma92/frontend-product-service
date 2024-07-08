@@ -4,10 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TableModule } from 'primeng/table';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
@@ -30,6 +30,9 @@ import { AddProductComponent } from './urban-carat/products/component/product/ad
 import { GetProductsComponent } from './urban-carat/products/component/product/get-products/get-products.component';
 import { EditProductComponent } from './urban-carat/products/component/product/edit-product/edit-product.component';
 import { DeleteProductComponent } from './urban-carat/products/component/product/delete-product/delete-product.component';
+import { LoginComponent } from './urban-carat/login/login.component';
+import { RegisterComponent } from './urban-carat/register/register.component';
+import { TokenInterceptor } from './urban-carat/interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { DeleteProductComponent } from './urban-carat/products/component/product
     AddProductComponent,
     GetProductsComponent,
     EditProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -61,9 +66,17 @@ import { DeleteProductComponent } from './urban-carat/products/component/product
     RadioButtonModule,
     DropdownModule,
     ScrollerModule,
-    ConfirmPopupModule
+    ConfirmPopupModule,
+    ReactiveFormsModule
   ],
-  providers: [ConfirmationService, MessageService],
+  providers: [ConfirmationService, MessageService,
+    //adding Token Interceptor for whole application 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,57 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <p-card header="Register" [style]="{width: '400px'}" class="flex justify-content-center ">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+            <div class="p-inputgroup ui-grid-col-2">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" pInputText formControlName="userId" placeholder="User Id" name="userId" required autofocus />
+            </div>
+            <div class="ui-grid-col-4" style="margin: 8px 0px">
+                <div [hidden]="registerForm.controls['userId'].valid || !registerForm.controls['userId'].dirty" class="alert alert-danger">
+                    User Id is required
+                </div>
+            </div>
+            <div class="p-inputgroup ui-grid-col-2">
+                <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span>
+                <input type="text" pInputText formControlName="emailId" placeholder="Email Id" name="emailId" required autofocus />
+            </div>
+            <div class="ui-grid-col-4" style="margin: 8px 0px">
+                <div [hidden]="registerForm.controls['emailId'].valid || !registerForm.controls['emailId'].dirty" class="alert alert-danger">
+                    Email Id is required
+                </div>
+            </div>
+            <div class="p-inputgroup ui-grid-col-2">
+                <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+                <input type="text" pInputText formControlName="fullName" placeholder="Full Name" name="fullName" required autofocus />
+            </div>
+            <div class="ui-grid-col-4" style="margin: 8px 0px">
+                <div [hidden]="registerForm.controls['fullName'].valid || !registerForm.controls['fullName'].dirty" class="alert alert-danger">
+                    Full Name is required
+                </div>
+            </div>
+            <div class="p-inputgroup ui-grid-col-2">
+                <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                <input type="password" pInputText formControlName="password" placeholder="Password" name="password" required autofocus />
+            </div>
+            <div class="ui-grid-col-4" style="margin: 8px 0px">
+                <div [hidden]="registerForm.controls['password'].valid || !registerForm.controls['password'].dirty" class="alert alert-danger">
+                    Password is required
+                </div>
+            </div>
+            <div class="p-inputgroup ui-grid-col-2">
+                <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                <input type="password" pInputText formControlName="confirmPassword" placeholder="Confirm Password" name="confirmPassword" required autofocus />
+            </div>
+            <div class="ui-grid-col-4" style="margin: 8px 0px">
+                <div [hidden]="registerForm.controls['confirmPassword'].valid || !registerForm.controls['confirmPassword'].dirty" class="alert alert-danger">
+                    Confirm Password is required
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-6">
+                    <button pButton type="submit" label="Register" [disabled]="!registerForm.valid" class="w-full"></button>
+                </div>
+            </div>
+        </div>
+        <div>Already a Member? <a routerLink="">Login</a></div>
+    </p-card>
+</form>
